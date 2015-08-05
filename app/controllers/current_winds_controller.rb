@@ -4,7 +4,9 @@ class CurrentWindsController < ApplicationController
   # GET /current_winds
   # GET /current_winds.json
   def index
-    @current_winds = CurrentWind.all
+    wind = CurrentWind.new
+    @speed = wind.speed
+    @bearing = wind.bearing
   end
 
   # GET /current_winds/1
