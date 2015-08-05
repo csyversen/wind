@@ -1,0 +1,17 @@
+<%= form_for(@current_wind) do |f| %>
+  <% if @current_wind.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@current_wind.errors.count, "error") %> prohibited this current_wind from being saved:</h2>
+
+      <ul>
+      <% @current_wind.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

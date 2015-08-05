@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Current Winds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @current_winds.each do |current_wind| %>
+      <tr>
+        <td><%= link_to 'Show', current_wind %></td>
+        <td><%= link_to 'Edit', edit_current_wind_path(current_wind) %></td>
+        <td><%= link_to 'Destroy', current_wind, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Current wind', new_current_wind_path %>

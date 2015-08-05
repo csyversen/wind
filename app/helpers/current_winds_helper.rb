@@ -1,0 +1,2 @@
+module CurrentWindsHelper
+end
