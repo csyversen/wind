@@ -8,7 +8,7 @@ class CurrentWind
 
   def initialize( attributes={} )
     super
-    ForecastIO.api_key = Rails.application.secrets.forecast_api_key
+    ForecastIO.api_key = ENV["forecast_api_key"]
   end
 
   def speed
