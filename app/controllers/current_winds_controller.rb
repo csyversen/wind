@@ -1,18 +1,17 @@
 class CurrentWindsController < ApplicationController
   before_action :set_current_wind, only: [:show, :edit, :update, :destroy]
 
-  geocode_ip_address
+  include CurrentWindsHelper
 
   # GET /current_winds
   # GET /current_winds.json
   def index
-    if geo = session[:geo_location]
-      wind = CurrentWind.new( lat: geo["lat"], lng: geo["lng"] )
-      loc = wind.location
-      @speed = wind.speed
-      @bearing = wind.bearing
-      @citystate = "#{loc.city}, #{loc.state}"
-    end
+    geo = ip_lookup ( request.remote_ip )
+    wind = CurrentWind.new( lat: geo["lat"], lng: geo["lng"] )
+    loc = wind.location
+    @speed = wind.speed
+    @bearing = wind.bearing
+    @citystate = "#{loc.city}, #{loc.state}"
   end
 
   # GET /current_winds/1
