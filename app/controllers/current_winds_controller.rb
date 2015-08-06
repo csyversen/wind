@@ -7,7 +7,7 @@ class CurrentWindsController < ApplicationController
   # GET /current_winds.json
   def index
     geo = ip_lookup ( request.remote_ip )
-    wind = CurrentWind.new( lat: geo["lat"], lng: geo["lng"] )
+    wind = CurrentWind.new( lat: geo.lat, lng: geo.lng )
     loc = wind.location
     @speed = wind.speed
     @bearing = wind.bearing
