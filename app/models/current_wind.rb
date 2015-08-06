@@ -2,11 +2,11 @@ class CurrentWind
   include ActiveModel::Model
   require 'forecast_io'
 
-  attr_accessor :lat, :long
+  attr_accessor :lat, :lng
 
-  GREENWOOD_BEACH = { lat: '42.043197', long: '-87.671366' }
+  GREENWOOD_BEACH = { lat: '42.043197', lng: '-87.671366' }
 
-  def initialize( attributes={} )
+  def initialize( params={} )
     super
     ForecastIO.api_key = ENV["forecast_api_key"]
   end
@@ -26,7 +26,7 @@ class CurrentWind
   # this isn't great forever, we'll have to expire it at some point.
   # but it saves on api requests for now
   def get_forecast
-    @forecast = ForecastIO.forecast( GREENWOOD_BEACH[:lat], GREENWOOD_BEACH[:long] )
+    @forecast = ForecastIO.forecast( lat, lng )
   end
 
 

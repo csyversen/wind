@@ -28,6 +28,7 @@ gem 'bootstrap-sass'
 gem 'forecast_io'
 gem 'figaro'
 gem 'font-awesome-sass'
+gem 'geokit-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
