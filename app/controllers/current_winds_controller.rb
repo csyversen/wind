@@ -8,8 +8,10 @@ class CurrentWindsController < ApplicationController
   def index
     if geo = session[:geo_location]
       wind = CurrentWind.new( lat: geo["lat"], lng: geo["lng"] )
+      loc = wind.location
       @speed = wind.speed
       @bearing = wind.bearing
+      @citystate = "#{loc.city}, #{loc.state}"
     end
   end
 

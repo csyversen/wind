@@ -21,6 +21,10 @@ class CurrentWind
     @forecast.hourly.data.first.windBearing
   end
 
+  def location
+    loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{lat},#{lng}"
+  end
+
   private
 
   # this isn't great forever, we'll have to expire it at some point.
