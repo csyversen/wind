@@ -1,4 +1,4 @@
-module CurrentWindsHelper
+module WindsHelper
   include Geokit::Geocoders
 
   def ip_lookup( ip )

@@ -1,4 +1,4 @@
-class CurrentWind
+class Wind
   include ActiveModel::Model
   require 'forecast_io'
 
@@ -9,6 +9,10 @@ class CurrentWind
   def initialize( params={} )
     super
     ForecastIO.api_key = ENV["forecast_api_key"]
+  end
+
+  def forecast
+
   end
 
   def speed
