@@ -21,7 +21,7 @@ require 'rails_helper'
 RSpec.describe WindsController, type: :controller do
 
   # This should return the minimal set of attributes required to create a valid
-  # CurrentWind. As you add validations to CurrentWind, be sure to
+  # Wind. As you add validations to Wind, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
     skip("Add a hash of attributes valid for your model")
@@ -33,68 +33,68 @@ RSpec.describe WindsController, type: :controller do
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # CurrentWindsController. Be sure to keep this updated too.
+  # WindsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all current_winds as @current_winds" do
-      current_wind = CurrentWind.create! valid_attributes
+    it "assigns all winds as @winds" do
+      wind = Wind.create! valid_attributes
       get :index, {}, valid_session
-      expect(assigns(:current_winds)).to eq([current_wind])
+      expect(assigns(:winds)).to eq([wind])
     end
   end
 
   describe "GET #show" do
-    it "assigns the requested current_wind as @current_wind" do
-      current_wind = CurrentWind.create! valid_attributes
-      get :show, {:id => current_wind.to_param}, valid_session
-      expect(assigns(:current_wind)).to eq(current_wind)
+    it "assigns the requested wind as @wind" do
+      wind = Wind.create! valid_attributes
+      get :show, {:id => wind.to_param}, valid_session
+      expect(assigns(:wind)).to eq(wind)
     end
   end
 
   describe "GET #new" do
-    it "assigns a new current_wind as @current_wind" do
+    it "assigns a new wind as @wind" do
       get :new, {}, valid_session
-      expect(assigns(:current_wind)).to be_a_new(CurrentWind)
+      expect(assigns(:wind)).to be_a_new(Wind)
     end
   end
 
   describe "GET #edit" do
-    it "assigns the requested current_wind as @current_wind" do
-      current_wind = CurrentWind.create! valid_attributes
-      get :edit, {:id => current_wind.to_param}, valid_session
-      expect(assigns(:current_wind)).to eq(current_wind)
+    it "assigns the requested wind as @wind" do
+      wind = Wind.create! valid_attributes
+      get :edit, {:id => wind.to_param}, valid_session
+      expect(assigns(:wind)).to eq(wind)
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new CurrentWind" do
+      it "creates a new Wind" do
         expect {
-          post :create, {:current_wind => valid_attributes}, valid_session
-        }.to change(CurrentWind, :count).by(1)
+          post :create, {:wind => valid_attributes}, valid_session
+        }.to change(Wind, :count).by(1)
       end
 
-      it "assigns a newly created current_wind as @current_wind" do
-        post :create, {:current_wind => valid_attributes}, valid_session
-        expect(assigns(:current_wind)).to be_a(CurrentWind)
-        expect(assigns(:current_wind)).to be_persisted
+      it "assigns a newly created wind as @wind" do
+        post :create, {:wind => valid_attributes}, valid_session
+        expect(assigns(:wind)).to be_a(Wind)
+        expect(assigns(:wind)).to be_persisted
       end
 
-      it "redirects to the created current_wind" do
-        post :create, {:current_wind => valid_attributes}, valid_session
-        expect(response).to redirect_to(CurrentWind.last)
+      it "redirects to the created wind" do
+        post :create, {:wind => valid_attributes}, valid_session
+        expect(response).to redirect_to(Wind.last)
       end
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved current_wind as @current_wind" do
-        post :create, {:current_wind => invalid_attributes}, valid_session
-        expect(assigns(:current_wind)).to be_a_new(CurrentWind)
+      it "assigns a newly created but unsaved wind as @wind" do
+        post :create, {:wind => invalid_attributes}, valid_session
+        expect(assigns(:wind)).to be_a_new(Wind)
       end
 
       it "re-renders the 'new' template" do
-        post :create, {:current_wind => invalid_attributes}, valid_session
+        post :create, {:wind => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
     end
@@ -106,53 +106,53 @@ RSpec.describe WindsController, type: :controller do
         skip("Add a hash of attributes valid for your model")
       }
 
-      it "updates the requested current_wind" do
-        current_wind = CurrentWind.create! valid_attributes
-        put :update, {:id => current_wind.to_param, :current_wind => new_attributes}, valid_session
-        current_wind.reload
+      it "updates the requested wind" do
+        wind = Wind.create! valid_attributes
+        put :update, {:id => wind.to_param, :wind => new_attributes}, valid_session
+        wind.reload
         skip("Add assertions for updated state")
       end
 
-      it "assigns the requested current_wind as @current_wind" do
-        current_wind = CurrentWind.create! valid_attributes
-        put :update, {:id => current_wind.to_param, :current_wind => valid_attributes}, valid_session
-        expect(assigns(:current_wind)).to eq(current_wind)
+      it "assigns the requested wind as @wind" do
+        wind = Wind.create! valid_attributes
+        put :update, {:id => wind.to_param, :wind => valid_attributes}, valid_session
+        expect(assigns(:wind)).to eq(wind)
       end
 
-      it "redirects to the current_wind" do
-        current_wind = CurrentWind.create! valid_attributes
-        put :update, {:id => current_wind.to_param, :current_wind => valid_attributes}, valid_session
-        expect(response).to redirect_to(current_wind)
+      it "redirects to the wind" do
+        wind = Wind.create! valid_attributes
+        put :update, {:id => wind.to_param, :wind => valid_attributes}, valid_session
+        expect(response).to redirect_to(wind)
       end
     end
 
     context "with invalid params" do
-      it "assigns the current_wind as @current_wind" do
-        current_wind = CurrentWind.create! valid_attributes
-        put :update, {:id => current_wind.to_param, :current_wind => invalid_attributes}, valid_session
-        expect(assigns(:current_wind)).to eq(current_wind)
+      it "assigns the wind as @wind" do
+        wind = Wind.create! valid_attributes
+        put :update, {:id => wind.to_param, :wind => invalid_attributes}, valid_session
+        expect(assigns(:wind)).to eq(wind)
       end
 
       it "re-renders the 'edit' template" do
-        current_wind = CurrentWind.create! valid_attributes
-        put :update, {:id => current_wind.to_param, :current_wind => invalid_attributes}, valid_session
+        wind = Wind.create! valid_attributes
+        put :update, {:id => wind.to_param, :wind => invalid_attributes}, valid_session
         expect(response).to render_template("edit")
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested current_wind" do
-      current_wind = CurrentWind.create! valid_attributes
+    it "destroys the requested wind" do
+      wind = Wind.create! valid_attributes
       expect {
-        delete :destroy, {:id => current_wind.to_param}, valid_session
-      }.to change(CurrentWind, :count).by(-1)
+        delete :destroy, {:id => wind.to_param}, valid_session
+      }.to change(Wind, :count).by(-1)
     end
 
-    it "redirects to the current_winds list" do
-      current_wind = CurrentWind.create! valid_attributes
-      delete :destroy, {:id => current_wind.to_param}, valid_session
-      expect(response).to redirect_to(current_winds_url)
+    it "redirects to the winds list" do
+      wind = Wind.create! valid_attributes
+      delete :destroy, {:id => wind.to_param}, valid_session
+      expect(response).to redirect_to(winds_url)
     end
   end
 

@@ -32,7 +32,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'rspec-rails'
-  gem 'sqlite3'
+  #gem 'sqlite3'
   gem 'capybara'
 end
 
